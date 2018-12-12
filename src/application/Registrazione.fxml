@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RegistrazioneController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="32.0" prefWidth="968.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRAZIONE STUDENTE" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Text>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </top>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="BASELINE_CENTER" prefHeight="38.0" prefWidth="968.0">
+               <children>
+                  <Label text="NOME" />
+                  <TextField fx:id="inputNome" />
+                  <Label text="COGNOME">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="inputCognome" />
+                  <Label text="NASCITA">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="inputNascita" promptText="GG/MM/AAAA" />
+                  <Label text="SESSIONE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <ComboBox fx:id="inputSessione" prefWidth="150.0" />
+               </children>
+            </HBox>
+            <Button fx:id="btnInserisci" mnemonicParsing="false" onAction="#insert" text="INSERICI" />
+            <Separator prefWidth="200.0">
+               <padding>
+                  <Insets top="20.0" />
+               </padding></Separator>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Sessione" />
+                  <ComboBox fx:id="selezione" prefWidth="150.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="0.0" prefWidth="968.0">
+               <children>
+                  <AnchorPane prefHeight="4.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="83.0" layoutY="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="39.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="40.0" layoutY="11.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COGNOME" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="39.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="52.0" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA DI NASCITA" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="39.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="47.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SESSIONE" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="outNome" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                  <TextArea fx:id="outCognome" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                  <TextArea fx:id="outData" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                  <TextArea fx:id="outSessione" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnCerca" layoutX="70.0" layoutY="40.0" mnemonicParsing="false" onAction="#cerca" text="Cerca" />
+                     </children>
+                  </AnchorPane>
+               </children></HBox>
+            <HBox prefHeight="41.0" prefWidth="968.0">
+               <children>
+                  <Label text="DATA DI NASCITA" />
+                  <TextField fx:id="dataDel" promptText="GG/MM/AAAA" />
+                  <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#delete" text="DELETE" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="119.0" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="SEGNALAZIONE OMONIMIA" />
+                  <ComboBox fx:id="deleteChoice" prefWidth="150.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
