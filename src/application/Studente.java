@@ -1,13 +1,15 @@
 package application;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Studente {
 	private String nome;
 	private String cognome;
-	private String nascita;
+	//private String nascita;
+	private Date nascita;
 	private String sessione;
-	Studente(String n, String c, String nascita, String sessione){
+	
+	Studente(String n, String c, Date nascita, String sessione){
 		nome=n;
 		cognome=c;
 		this.nascita=nascita;
@@ -25,10 +27,10 @@ public class Studente {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-	public String getNascita() {
+	public Date getNascita() {
 		return nascita;
 	}
-	public void setNascita(String nascita) {
+	public void setNascita(Date nascita) {
 		this.nascita = nascita;
 	}
 	public String getSessione() {

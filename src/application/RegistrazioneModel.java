@@ -1,5 +1,6 @@
 package application;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class RegistrazioneModel {
@@ -9,7 +10,7 @@ public class RegistrazioneModel {
 		studenti=new ArrayList<Studente>();
 	}
 	
-	void addStudente(String nome, String cognome, String nascita, String sessione) {
+	void addStudente(String nome, String cognome, Date nascita, String sessione) {
 		studenti.add(new Studente(nome, cognome, nascita, sessione));
 		System.out.println(studenti.toString());
 		//System.out.println(studenti.get(studenti.size()).getNome() +" "+studenti.get(studenti.size()).getCognome() +" "+studenti.get(studenti.size()).getNascita() +" "+studenti.get(studenti.size()).getSessione());
@@ -31,8 +32,8 @@ public class RegistrazioneModel {
 		}
 		return s;
 	}
-	public ArrayList<String> cercaNascita(String sessione){
-		ArrayList<String> s=new ArrayList<String>();
+	public ArrayList<Date> cercaNascita(String sessione){
+		ArrayList<Date> s=new ArrayList<Date>();
 		for(Studente p:studenti) {
 			if(p.getSessione().equals(sessione))
 				s.add(p.getNascita());

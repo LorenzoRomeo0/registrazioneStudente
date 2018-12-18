@@ -5,6 +5,7 @@
 package application;
 
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -13,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -32,7 +34,7 @@ public class RegistrazioneController {
     private TextField inputCognome; // Value injected by FXMLLoader
 
     @FXML // fx:id="inputNascita"
-    private TextField inputNascita; // Value injected by FXMLLoader
+    private DatePicker inputNascita; // Value injected by FXMLLoader
 
     @FXML // fx:id="inputSessione"
     private ComboBox<String> inputSessione; // Value injected by FXMLLoader
@@ -77,7 +79,7 @@ public class RegistrazioneController {
     			outNome.appendText(s+"\n");
     		for(String s:r.cercaCognome(op))
     			outCognome.appendText(s+"\n");
-    		for(String s:r.cercaNascita(op))
+    		for(Date s:r.cercaNascita(op))
     			outData.appendText(s+"\n");
     		for(String s:r.cercaSessione(op))
     			outSessione.appendText(s+"\n");
@@ -103,8 +105,8 @@ public class RegistrazioneController {
     
     @FXML
     void insert(ActionEvent event) {
-    	if(!(inputNome.getText().isEmpty() || inputCognome.getText().isEmpty() || inputNascita.getText().isEmpty() || inputSessione.getSelectionModel().getSelectedIndex()==-1)) {
-    		r.addStudente(inputNome.getText(), inputCognome.getText(), inputNascita.getText(), options.get(inputSessione.getSelectionModel().getSelectedIndex()));
+    	if(!(inputNome.getText().isEmpty() || inputCognome.getText().isEmpty() || inputNascita.getValue()!=null || inputSessione.getSelectionModel().getSelectedIndex()==-1)) {
+    		r.addStudente(inputNome.getText(), inputCognome.getText(), Date.valueOf(inputNascita.getValue()), options.get(inputSessione.getSelectionModel().getSelectedIndex()));
     	}
     }
     
